@@ -33,6 +33,11 @@ module.exports = function(options) {
         config = content.attributes;
         var relativePath = path.relative(directory + path.sep + options.root, file.path);
         config.path = relativePath.split(path.sep).join('/');
+
+        if(config.url && options.baseUrl) {
+          config.url = path.join(options.baseUrl, config.url);
+        }
+
         configs.push(config);
       }
     }
