@@ -3,6 +3,7 @@ var fm          = require('front-matter');
 var PluginError = require('gulp-util').PluginError;
 var path        = require('path');
 var fs          = require('fs');
+var mkdirp      = require('mkdirp');
 
 module.exports = function(options) {
   var configs = [];
@@ -50,6 +51,9 @@ module.exports = function(options) {
   function endStream(cb) {
     var self = this;
     var appPath = options.path;
+    var basePath = path.dirname(appPath);
+
+    mkdirp.sync(basePath, options.mkdirp);
 
     configs.sort(function(a, b) {
       return a.url < b.url;

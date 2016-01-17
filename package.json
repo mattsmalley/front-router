@@ -27,6 +27,7 @@
     "through2": "^0.6.3"
   },
   "devDependencies": {
+    "mkdirp": "^0.5.1",
     "mocha": "^2.3.3",
     "vinyl-fs": "^1.0.0"
   }
